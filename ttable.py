@@ -16,7 +16,7 @@ neg:     "~" (neg | atom)
 
 T: "T" | "1"
 F: "F" | "0"
-I: "I"
+I: "I" | "U"
 N: "N"
 B: "B"
 VAR: ("a".."z")+
@@ -392,7 +392,7 @@ def help():
 	print('  p        variable: sequence of lowercase characters')
 	print('  1/T      true')
 	print('  0/F      false')
-	print('  I        unspecified: for 3-valued logic')
+	print('  I/U      unspecified: for 3-valued logic')
 	print('  B        both true and false: for 4-valued logic')
 	print('  N        neither true nor false: for 4-valued logic')
 	print('')
@@ -426,7 +426,12 @@ def main():
 			help()
 			continue
 		
-		tree = l.parse(expression)
+		try:
+			tree = l.parse(expression)
+		except Exception as e:
+			print('\n' + str(e))
+			continue
+		
 		logic = logics[find_logic_type(tree).upper()]
 		
 		var_vals = {}
@@ -434,10 +439,11 @@ def main():
 	
 		tree_str = '  ' + tree_to_string(tree)
 		print('\n' + tree_str)
-		print('.' * len(tree_str))
+		print('.' * (len(tree_str) + 2))
 		
 		always_valid = True
 		invalid_rows = []
+		no_error = True
 		
 		V = logic['values']
 		# generating all permuations of possible variable assignments using integer
@@ -449,25 +455,31 @@ def main():
 				var_vals[var] = V[vals % len(V)]
 				vals //= len(V)
 			
-			holds = assign_truth_vals(tree, var_vals, node_vals, logic)
-			if holds != '1':
-				always_valid = False
-				invalid_rows += [val + 1]
+			try:
+				holds = assign_truth_vals(tree, var_vals, node_vals, logic)
+				if holds != '1':
+					always_valid = False
+					invalid_rows += [val + 1]
+				
+				valid_str = '* ' if holds != '1' else '  '
+				print(valid_str + truth_to_string(tree, node_vals))
+			except:
+				print('error')
+				no_error = False
+				break
 			
-			valid_str = '* ' if holds != '1' else '  '
-			print(valid_str + truth_to_string(tree, node_vals))
-			
-		print('')
-		if (tree.data == 'entail'):
-			if always_valid:
-				print('entailment always holds')
+		if no_error: 
+			print('')
+			if (tree.data == 'entail'):
+				if always_valid:
+					print('entailment always holds')
+				else:
+					print('entailment doesn\'t hold in row(s) ' + ','.join(str(x) for x in invalid_rows))
 			else:
-				print('entailment doesn\'t hold in row(s) ' + ','.join(str(x) for x in invalid_rows))
-		else:
-			if always_valid:
-				print('formula is a tautology')
-			else:
-				print('formula is not a tautology, in row(s) ' + ','.join(str(x) for x in invalid_rows))
+				if always_valid:
+					print('formula is a tautology')
+				else:
+					print('formula is not a tautology, in row(s) ' + ','.join(str(x) for x in invalid_rows))
 		print('')
 				
 			
