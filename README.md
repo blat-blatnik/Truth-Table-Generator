@@ -46,9 +46,9 @@ $ python3 ttable.py
 | `p`            | any sequence of **_lowercase_** characters is a variable |
 | `1`/`T`        | _true_                                                   |
 | `0`/`F`        | _false_                                                  |
-| `I`/`U`        | _unspecified_: for 3-valued logic                        |
-| `B`            | _both_ true and false: for 4 valued logic                |
-| `N`            | _neither_ true nor false: for 4 valued logic             |
+| `I`/`U`        | _unspecified_ for 3-valued logic                         |
+| `B`            | _both_ true and false for 4 valued logic                 |
+| `N`            | _neither_ true nor false for 4 valued logic              |
 | **entailment** |                                                          |
 | `p \|= q`      | _p_ entails _q_ in classic propositional logic (CPL)     |
 | `p \|=L q`     | _p_ entails _q_ in logic "L" (see above)                 |
