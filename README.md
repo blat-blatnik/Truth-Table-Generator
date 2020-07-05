@@ -10,7 +10,7 @@ It uses [lark-parser](https://github.com/lark-parser/lark) to parse the input fo
 2. [**K3**](https://en.wikipedia.org/wiki/Three-valued_logic#Logics)  - Kleen's 3-valued logic
 3. [**B3**](https://en.wikipedia.org/wiki/Many-valued_logic#Bochvar's_internal_three-valued_logic_(also_known_as_Kleene's_weak_three-valued_logic)#Examples)  - Bochvar's internal 3-valued logic
 4. [**LP**](https://en.wikipedia.org/wiki/Three-valued_logic#Logics)  - Priest's logic of paradox
-5. [**L3**](https://en.wikipedia.org/wiki/Three-valued_logic#Logics)  - Lukasiewicz's 3-valued logic
+5. [**L3**](https://en.wikipedia.org/wiki/Three-valued_logic#Logics)  - Łukasiewicz's 3-valued logic
 6. [**RM3**](http://www.tptp.org/Seminars/RM3/LogicRM3.html) - R-mingle 3-valued logic
 7. [**FDE**](https://en.wikipedia.org/wiki/Many-valued_logic#Bochvar's_internal_three-valued_logic_(also_known_as_Kleene's_weak_three-valued_logic)#Examples) - Belnap 4-valued logic, first degree entailment
 
