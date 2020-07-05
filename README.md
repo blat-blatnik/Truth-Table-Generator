@@ -44,9 +44,9 @@ $ python3 ttable.py
 | `p <-> q`      | _p_ is equivalent to _q_                                 |
 | **atom**       |                                                          |
 | `p`            | any sequence of **_lowercase_** characters is a variable |
-| `1`/`T`        | _true_                                                   |
-| `0`/`F`        | _false_                                                  |
-| `I`/`U`        | _unspecified_ for 3-valued logic                         |
+| `1` or `T`     | _true_                                                   |
+| `0` or `F`     | _false_                                                  |
+| `I` or `U`     | _unspecified_ for 3-valued logic                         |
 | `B`            | _both_ true and false for 4 valued logic                 |
 | `N`            | _neither_ true nor false for 4 valued logic              |
 | **entailment** |                                                          |
