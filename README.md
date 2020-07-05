@@ -1,6 +1,6 @@
-# Truth-Table-Generator-for-Multi-Valued-Logic
+# Truth-Table-Generator
 
-This is a simple truth-table generator for 3 and 4-valued logics that I made for solving homework one evening when I was bored. It also can be used to check entailments, as long as your formula doesn't have too many variables.
+This is a very simple truth-table generator for 3 and 4-valued logics that I made for solving homework one evening when I was bored. It also can be used to check entailments, as long as your formula doesn't have too many variables.
 
 It uses [lark-parser](https://github.com/lark-parser/lark) to parse the input formulas, which was very quick and easy to set up. After parsing the formula, the program will iterate over all possible assignments to the variables in the formula and recursively find the truth values of all connectives, and the entailment.
 
